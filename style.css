@@ -1,0 +1,195 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(255, 255, 255);
+}
+
+button{
+    font-family: 'Poppins', sans-serif;
+}
+
+header{
+     display: flex; /*Agregamos este display para que todos los elementos queden juntos en una misma linea*/
+     width: 80%;
+     margin: auto; /*alinea elementos en el medio del div padre */
+     height: 10vh;
+     align-items: center; /*alinea los elementos en el centro del div*/
+    
+}
+
+.logo-container{
+    flex: 1; /*El flex 1 toma todo el espacio vacio del div padre, los 80% que tenemos seteados arriba*/
+}
+
+.logo{
+    font-weight: 400; /*Seleccionar la google font que bajamos*/
+    margin: 5px;
+
+}
+
+nav{
+    flex: 2;
+}
+.nav-links{
+    justify-content: space-around; /*Setea el lugar de los items que esten dentro de un div flexible*/
+    list-style: none;
+}
+
+.nav-link{
+    text-decoration: none;
+    font-size: 18px;
+    color: #5f5f79;
+}
+
+
+.cart{
+    flex: 1;
+    justify-content: flex-end; /*Mover el elemento al final del div padre (derecha)*/
+}
+
+.logo-container,.nav-links , .cart{
+    display: flex;
+}
+
+.presentation{
+    display: flex;
+    width: 90%;
+    margin: auto;
+    min-height: 80vh;
+    align-items: center;
+}
+
+.introduction{
+    flex: 1;
+}
+
+.cover{
+    flex: 1;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+}
+
+.intro-text{
+    font-size: 44px;
+    font-weight: 500;
+    background: linear-gradient(to right,#000000,#5f5f5f);  /*Agregamos un degrade de color al fondo del texto(primer paso)*/
+    -webkit-background-clip: text; /*Hace que el backgorund se "pegue" al texto*/
+    -webkit-text-fill-color: transparent; /*hacemos el texto transparente para que se vea ese backgorund*/
+}
+
+.intro-text p {
+    margin-top: 5px;
+    font-size: 22px;
+    color: #585772;
+}
+
+.cta{
+    padding: 50px 0px 0px 0px; /*para darle padding arriba, es en sentido horrario*/
+}
+
+.cta-select{
+    border: 1px solid #c36cbb;
+    background: transparent;
+    color: #c36cbb;
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.cta-add{
+    background: #c36cbb;
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    color: white;
+    margin: 30px 0px 0px 30px;
+}
+
+.cover img{
+    height: 100%;
+    filter: drop-shadow(0px 5px 3px black); /*IMPORTANTE asi le podemos añadir una sombra a un PNG*/
+    animation: drop ease 1.5s;
+}
+
+.big-circle{
+    position: absolute; /* Para poder moverlo en la direccion que queramos*/
+    top: 0%;
+    right: 0%;
+    z-index: -1;   /*Lo deja detras del resto de los elementos en el div*/
+    height: 80%;
+    opacity: 0.6;
+}
+
+.mid-circle{
+    position: absolute;
+    top: 30%;
+    right: 30%;
+    z-index: -1;
+    height: 60%;
+    opacity: 0.6;
+
+}
+
+.small-cirlce{
+    position: absolute;
+    bottom: 0%;
+    left: 20%;
+    z-index: -1;
+}
+
+.laptop-select{
+    position: absolute;
+    display: flex;
+    width: 20%;
+    justify-content: space-around;
+    right: 25%;
+}
+
+
+@keyframes drop{   /*generar animacion */
+    0%{
+        opacity:0;
+        transform: translateY(-80px);   /*hace que la imagen de la laptop este arriba y sin opacidad lo que la hara invisible */
+    }
+    100%{
+        opacity:1;
+        transform: translateY(0px);
+    }
+
+}
+
+@media screen and (max-width: 1024px){   /*Para hacerlo movile friendly*/
+    .presentation{
+        flex-direction: column;   /*Actuamos sobre el div de presentacion para que se modifique en ese width de pantalla*/
+    }
+    .introduction{
+        margin-top: 5vh;
+        text-align: center;
+    }
+    .intro-text h1 {
+        font-size: 30px0;
+    }
+    .intro-text p {
+        font-size: 18px;
+    }
+    .cta{
+        padding: 10px 0px 0px 0px;
+    }
+    .laptop-select{
+        bottom: -25%;
+        right: 50%;
+        width: 50%;
+        transform:translate(50%,5%);
+    }
+
+}
+
